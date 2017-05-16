@@ -23,26 +23,43 @@ let pricesArray = data.map(items => items.price);
 findingTheMean();
 
 //Get an array of items that cost between $14.00 and $18.00 USD
-//let teens = data.filter(object => object.age > 12 && object.age < 20); .map
+let costArray = data.filter(object => object.price >= 14.00 && object.price <= 18.00).map(items =>[items.title, items.price]);
+  console.log(costArray);
 
 //Look at .price that == $14.00 and $18.00
 
 
-//Which item has a "GBP" currency code? Display its name and price.
+//3.Which item has a "GBP" currency code? Display its name and price.
+let currencyCode = data.filter(item => item.name && item.price);
+console.log(currencyCode)
 
 //I am gonna want to look at .currency_code
 
 
-//Display a list of all items which are made of wood.
+//4.Display a list of all items which are made of wood.
+//use filter  and includes
+let woodObjects = data.filter(item => item.materials.includes('wood'))
+  console.log(woodObjects);
 
 //Look at .materials I will need to figure the Array.prototype.indexOf() of the array.
 
 
-//Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
+//5.Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
-//Look at .material that length = [9]
+let manyMaterials = data.filter( item => item.materials.length >= 8 ).map(item => [item.title, item.materials.length, item.materials]);
+  console.log(manyMaterials)
+
+
+
+//6. How many items were made by their sellers?
+let sellerItems = data.filter( item => item.who_made === 'i_did')
+console.log(sellerItems.length);
 
 
 
 
-//How many items were made by their sellers?
+/*===========================================================================*/
+
+//how many males were there in America in 2010?
+// data.reduce((total, object) => total + object.males);
+// console.log('there were', totalMales, 'males in 2010');
