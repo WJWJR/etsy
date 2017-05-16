@@ -18,20 +18,22 @@ let pricesArray = data.map(items => items.price);
   });
   console.log(sum)
   let average = sum / pricesArray.length;
-  console.log(average.toFixed(2))
+ console.log(average.toFixed(2))
 }
 findingTheMean();
 
 //Get an array of items that cost between $14.00 and $18.00 USD
 let costArray = data.filter(object => object.price >= 14.00 && object.price <= 18.00).map(items =>[items.title, items.price]);
-  console.log(costArray);
+ console.log(costArray);
 
 //Look at .price that == $14.00 and $18.00
 
 
 //3.Which item has a "GBP" currency code? Display its name and price.
-let currencyCode = data.filter(item => item.name && item.price);
-console.log(currencyCode)
+let currencyCode = data.filter(item => item.currency_code === 'GBP').map(item => [item.title, item.price]);
+// let currencyCode = data.filter(item => item.currency_code===gbp)
+// let currencyCode = data.map(item => item.currency_code)[10]
+console.log(currencyCode);
 
 //I am gonna want to look at .currency_code
 
@@ -39,7 +41,7 @@ console.log(currencyCode)
 //4.Display a list of all items which are made of wood.
 //use filter  and includes
 let woodObjects = data.filter(item => item.materials.includes('wood'))
-  console.log(woodObjects);
+ console.log(woodObjects);
 
 //Look at .materials I will need to figure the Array.prototype.indexOf() of the array.
 
@@ -47,7 +49,7 @@ let woodObjects = data.filter(item => item.materials.includes('wood'))
 //5.Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
 let manyMaterials = data.filter( item => item.materials.length >= 8 ).map(item => [item.title, item.materials.length, item.materials]);
-  console.log(manyMaterials)
+ console.log(manyMaterials)
 
 
 
